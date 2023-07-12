@@ -51,7 +51,7 @@ export default function Home() {
 
   return (
     <div className='App'>
-      <InputSearch value={input} placeholder='Digite algo'  onChange={handleChange}></InputSearch>
+      <InputSearch value={input} placeholder='Buscar PostCard'  onChange={handleChange}></InputSearch>
       <div className='posts' >
       {
       iguais.map((post) => {
