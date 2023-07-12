@@ -47,7 +47,6 @@ export default function Home() {
    })
     :postsandPhotos
     setIguais(newPosts)
-
     },[input])
 
   return (
