@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import "./style.css"
 import { loadData } from '../../utils/load-data';
 import { Posts } from '../../components/posts';
@@ -8,31 +8,25 @@ export default function Home() {
   const [postsandPhotos, setpostsandPhotos] = useState<any[]>([])
   const [page, setPage] = useState(0)
   const [allPosts, setAllPosts] = useState<any[]>([])
-  const [postPerPage, setPostPerPage] = useState(2)
+  const [postPerPage] = useState(2)
   const [input, setInput] = useState<any>()
-  const [iguais, setIguais] = useState<any[]>([])
 
-  const getData = async () => {
+  const getData = useCallback(async (page:any, postPerPage: any) => {
     const postsAndPhotos = await loadData()
     setAllPosts(postsAndPhotos)
     setpostsandPhotos(postsAndPhotos.slice(page, postPerPage))
-  }
+  }, [])
 
   useEffect(()=>{
-    getData();
-    },[])
+    getData(0, postPerPage);
+    },[getData, postPerPage])
   
-  useEffect(()=>{
-    setIguais(postsandPhotos)
-  },[postsandPhotos])
 
   const addPosts = ()=>{
-    let newPosts: any[] = []
     const nextPage = page + postPerPage
-    newPosts = allPosts.slice(nextPage, nextPage + postPerPage)
-    const nextPosts = []
-    nextPosts.push(...postsandPhotos, ...newPosts)
-    setpostsandPhotos(nextPosts)
+    const newPosts = allPosts.slice(nextPage, nextPage + postPerPage)
+    postsandPhotos.push( ...newPosts)
+    setpostsandPhotos(postsandPhotos)
     setPage(nextPage)
   }
 
@@ -40,14 +34,11 @@ export default function Home() {
     setInput(e.target.value);
   }
 
-  useEffect(()=>{
-    const newPosts:any[] = !!input ?
+    const iguais = !!input ?
     postsandPhotos.filter((post) => {
      return post.title.toLowerCase().includes(input.toLowerCase())
    })
     :postsandPhotos
-    setIguais(newPosts)
-    },[input])
 
   return (
     <div className='App'>

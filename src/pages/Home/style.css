@@ -43,9 +43,9 @@
     
 }
 button{
-    font-size: 25px;
+    font-size: 26px;
     font-weight: bold;
-    color: #fff;
+    color: #ffee;
     height: 3rem;
     width: 80%;
     background-color: greenyellow;
@@ -53,10 +53,4 @@ button{
     border: none;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
     margin-bottom: 2rem;
-}
-
-button:disabled{
-    background-color: gray;
-    cursor:not-allowed;
-    color: gainsboro;
 }
