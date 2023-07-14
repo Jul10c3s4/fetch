@@ -54,3 +54,8 @@ button{
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
     margin-bottom: 2rem;
 }
+
+button:disabled{
+    background-color: rgba(128, 128, 128, 0.6);
+    color: rgba(255, 255, 255, 0.4);;
+}

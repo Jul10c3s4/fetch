@@ -3,12 +3,13 @@ import "./style.css"
 import { loadData } from '../../utils/load-data';
 import { Posts } from '../../components/posts';
 import { InputSearch } from '../../components/inputsearch';
+import { AddPostButton } from '../../components/addPostButton';
 export default function Home() {
   
   const [postsandPhotos, setpostsandPhotos] = useState<any[]>([])
   const [page, setPage] = useState(0)
   const [allPosts, setAllPosts] = useState<any[]>([])
-  const [postPerPage] = useState(2)
+  const [postPerPage] = useState(50)
   const [input, setInput] = useState<any>()
 
   const getData = useCallback(async (page:any, postPerPage: any) => {
@@ -40,6 +41,8 @@ export default function Home() {
    })
     :postsandPhotos
 
+    const canAddPosts = iguais.length < 100
+    //alert(canAddPosts) 
   return (
     <div className='App'>
       <InputSearch value={input} placeholder='Buscar PostCard'  onChange={handleChange}></InputSearch>
@@ -54,7 +57,7 @@ export default function Home() {
         <div className='vazio'><h2>Não há nenhum Postcard com esse título</h2></div>
       )}
       </div>
-      {!input && <button type="button" onClick={addPosts}>Adicionar posts</button>}
+      {!input && <AddPostButton click={addPosts} disabled={!canAddPosts} title='Add PostCard'/>}
     </div>
   );
 }
