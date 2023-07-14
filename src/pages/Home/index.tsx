@@ -9,7 +9,7 @@ export default function Home() {
   const [postsandPhotos, setpostsandPhotos] = useState<any[]>([])
   const [page, setPage] = useState(0)
   const [allPosts, setAllPosts] = useState<any[]>([])
-  const [postPerPage] = useState(50)
+  const [postPerPage] = useState(2)
   const [input, setInput] = useState<any>()
 
   const getData = useCallback(async (page:any, postPerPage: any) => {
