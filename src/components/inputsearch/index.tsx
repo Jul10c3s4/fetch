@@ -1,6 +1,6 @@
 import "./styles.css"
 interface IInputSearch{
-    placeholder: string,
+    placeholder?: string,
     value?: string,
     onChange?: any
 }

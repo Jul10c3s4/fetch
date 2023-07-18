@@ -1,0 +1,92 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Posts> should render posts 1`] = `
+<div
+  class="posts"
+>
+  <div
+    class="post"
+  >
+    <img
+      alt="title 1"
+      src="https://dfdf"
+    />
+    <div
+      class="post-content"
+    >
+      <h1>
+        1
+      </h1>
+      <h2>
+        title 1
+      </h2>
+      <p>
+        body 1
+      </p>
+    </div>
+  </div>
+  <div
+    class="post"
+  >
+    <img
+      alt="title 2"
+      src="https2://dfdf"
+    />
+    <div
+      class="post-content"
+    >
+      <h1>
+        2
+      </h1>
+      <h2>
+        title 2
+      </h2>
+      <p>
+        body 2
+      </p>
+    </div>
+  </div>
+  <div
+    class="post"
+  >
+    <img
+      alt="title 3"
+      src="3https://dfdf"
+    />
+    <div
+      class="post-content"
+    >
+      <h1>
+        3
+      </h1>
+      <h2>
+        title 3
+      </h2>
+      <p>
+        body 3
+      </p>
+    </div>
+  </div>
+  <div
+    class="post"
+  >
+    <img
+      alt="title 4"
+      src="4https://dfdf"
+    />
+    <div
+      class="post-content"
+    >
+      <h1>
+        4
+      </h1>
+      <h2>
+        title 4
+      </h2>
+      <p>
+        body 4
+      </p>
+    </div>
+  </div>
+</div>
+`;

@@ -1,11 +1,17 @@
 import { PostCard } from "../postCard"
-
+import './style.css'
 interface IPosts{
-    post: any
+    posts?: any
 }
 
-export const Posts = ({post}:IPosts) =>{
+export const Posts = ({posts}:IPosts) =>{
     return(
-        <PostCard key={post.id} id={post.id} title={post.title} body={post.body} photo={post.photo}/>
+        <div className="posts">
+            {posts.map((post:any) => {
+            return(
+                <PostCard key={post.id} id={post.id} title={post.title} body={post.body} photo={post.photo}/>
+            )})}
+            
+        </div>
     )
 }

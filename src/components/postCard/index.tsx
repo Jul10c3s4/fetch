@@ -1,8 +1,8 @@
 interface IPostCard{
-    id: number,
-    title: string,
-    body: string,
-    photo: string,
+    id?: number,
+    title?: string,
+    body?: string,
+    photo?: string,
 }
 export const PostCard = ({ id, title, body, photo}:IPostCard)=>{
     return(

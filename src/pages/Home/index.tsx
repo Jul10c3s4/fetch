@@ -5,7 +5,7 @@ import { Posts } from '../../components/posts';
 import { InputSearch } from '../../components/inputsearch';
 import { AddPostButton } from '../../components/addPostButton';
 export default function Home() {
-  
+
   const [postsandPhotos, setpostsandPhotos] = useState<any[]>([])
   const [page, setPage] = useState(0)
   const [allPosts, setAllPosts] = useState<any[]>([])
@@ -21,14 +21,14 @@ export default function Home() {
   useEffect(()=>{
     getData(0, postPerPage);
     },[getData, postPerPage])
-  
+
 
   const addPosts = ()=>{
-    const nextPage = page + postPerPage
-    const newPosts = allPosts.slice(nextPage, nextPage + postPerPage)
-    postsandPhotos.push( ...newPosts)
-    setpostsandPhotos(postsandPhotos)
-    setPage(nextPage)
+    const nextPage = page + postPerPage;
+    const newPosts = allPosts.slice(nextPage, nextPage + postPerPage);
+    postsandPhotos.push( ...newPosts);
+    setpostsandPhotos(postsandPhotos);
+    setPage(nextPage);
   }
 
   const handleChange = (e:any)=>{
@@ -39,24 +39,17 @@ export default function Home() {
     postsandPhotos.filter((post) => {
      return post.title.toLowerCase().includes(input.toLowerCase())
    })
-    :postsandPhotos
+    :postsandPhotos;
 
     const canAddPosts = iguais.length < 100
-    //alert(canAddPosts) 
+    //alert(canAddPosts)
   return (
     <div className='App'>
       <InputSearch value={input} placeholder='Buscar PostCard'  onChange={handleChange}></InputSearch>
-      <div className='posts' >
-      {
-      iguais.map((post) => {
-        return(
-          <Posts post={post}/>
-        )
-      })}
+      <Posts posts={iguais}/>
       {(iguais.length === 0)&&(
         <div className='vazio'><h2>Não há nenhum Postcard com esse título</h2></div>
       )}
-      </div>
       {!input && <AddPostButton click={addPosts} disabled={!canAddPosts} title='Add PostCard'/>}
     </div>
   );
